@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calendarous</title>
+</head>
+<style>
+h3{
+    margin: 0;
+    padding: 0;
+}
+div{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.logo {
+    margin: 15px 0px 0px 15px;
+}
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+}
+nav {
+    margin-left: auto;
+}
+nav a {
+    text-decoration: none;
+    padding: 15px 15px 15px 15px;
+}
+nav a:hover {
+    color: black;
+}
+.hero-wrapper {
+    background-image: url('./assets/images/Hero.png');
+    height: 548px;
+    width 100%;
+    display: flex;
+    align-items: flex-end;
+    background-size: cover;
+}
+h3 {
+    color: white;
+    font-size: 100px;
+    text-shadow: .3rem .3rem .05rem black;
+    padding: 0px 0px 20px 20px;
+}
+p {
+    height: 200px;
+    width: 200px;
+    background-color: blueviolet;
+    margin: 5px 5px 5px 5px;
+}
+</style>
+<body>
+    <div class="nav-wrapper">
+        <div class="logo">
+            <a href="#"><img src="./assets/images/logo.png" alt=""></a>
+        </div>
+        <nav>
+            <a href="# ">About Us</a>
+            <a href="#">Contact Us</a>
+        </nav>
+    </div>
+    <div class="hero-wrapper">
+        <h3>Embrace Life</h3>
+    </div>
+    <label for="choice">Choose the month: </label>
+    <select name="" id="month">
+    <option value="january">January</option>
+    <option value="february">February</option>
+    <option value="march">March</option>
+    <option value="april">April</option>
+    <option value="may">May</option>
+    <option value="june">June</option>
+    <option value="july">July</option>
+    <option value="august">August</option>
+    <option value="september">September</option>
+    <option value="october">October</option>
+    <option value="november">November</option>
+    <option value="december">December</option>
+</select>
+    <div id="calendar">
+        <h3></h3>
+        <p>1</p>
+    </div>
+<script>
+const select = document.querySelector = ('select');
+const h3 = document.querySelector = ('h3');
+select.onchange = function() {
+    const choice = select.value;
+    if (choice === 'february') {
+        days = 29;
+    } else if (choice === 'january' || choice === 'march' || choice === 'may' || choice === 'july' || choice === 'august' || choice === 'october' || choice === 'december') {
+        days = 31;
+    } else if (choice === 'june' || choice === 'september' || choice === 'november') {
+        days = 30;
+    }   
+}
+
+createCalendar(days, choice);
+
+    function createCalendar(days, choice) {
+    for (let i = 2; i <= days; i++) {
+        h3.textContent = choice;
+        const para = document.createElement('p');
+        let nodeList = document.createTextNode(i);
+        para.appendChild(nodeList);
+        const element = document.getElementById('calendar');
+        element.appendChild(para);
+        element.style.display = 'flex';
+        element.style.flexWrap = "wrap";
+    }
+}
+/*function deleteCalendar(days, choice) {
+    for (let i = 2; i <= days; i++) {
+        h3.textContent = choice;
+        const para = document.createElement('p');
+        let nodeList = document.createTextNode(i);
+        para.appendChild(nodeList);
+        const element = document.getElementById('calendar');
+        element.appendChild(para);
+        element.style.display = 'flex';
+        element.style.flexWrap = "wrap";
+    }
+}*/
+
+</script>
+</body>
+</html>
